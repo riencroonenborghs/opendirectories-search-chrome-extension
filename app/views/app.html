@@ -16,22 +16,35 @@
 
     <script src="../app/assets/javascripts/app/app.js"></script>
     <script src="../app/assets/javascripts/app/controllers.js"></script>
+    <script src="../app/assets/javascripts/app/controllers/AppController.js"></script>
+    <script src="../app/assets/javascripts/app/controllers/SavedQueriesController.js"></script> 
+    <script src="../app/assets/javascripts/app/controllers/BlacklistIndexController.js"></script> 
+    <script src="../app/assets/javascripts/app/controllers/BlacklistNewController.js"></script> 
+    <script src="../app/assets/javascripts/app/controllers/BlacklistEditController.js"></script> 
+    <script src="../app/assets/javascripts/app/controllers/QueryTypesIndexController.js"></script>
+    <script src="../app/assets/javascripts/app/controllers/QueryTypeNewController.js"></script>
+    <script src="../app/assets/javascripts/app/controllers/QueryTypeEditController.js"></script>
     <script src="../app/assets/javascripts/app/services.js"></script>
+    <script src="../app/assets/javascripts/app/services/ChromeStorage.js"></script>
+    <script src="../app/assets/javascripts/app/services/Topbar.js"></script>
+    <script src="../app/assets/javascripts/app/services/GoogleSearchService.js"></script>
+    <script src="../app/assets/javascripts/app/services/GoogleSearchModelService.js"></script>
     <script src="../app/assets/javascripts/app/factories.js"></script>
+    <script src="../app/assets/javascripts/app/factories/GoogleQueryFactory.js"></script>
+    <script src="../app/assets/javascripts/app/factories/GoogleSearchModelFactory.js"></script>
     <script src="../app/assets/javascripts/app/directives.js"></script>
-    <script src="../app/assets/javascripts/app/blacklist.controllers.js"></script>
-    <script src="../app/assets/javascripts/app/query_types.controllers.js"></script>
+    <script src="../app/assets/javascripts/app/directives/ngEnter.js"></script>
     
     <link rel="stylesheet" type="text/css" href="../app/assets/stylesheets/libs/angular-material.css">
     <link rel="stylesheet" type="text/css" href="../app/assets/stylesheets/libs/angular-material-icons.css">
     <link rel="stylesheet" type="text/css" href="../app/assets/stylesheets/app.css">
   </head>
-  <body ng-app="opendirectories" ng-controller="appController">
+  <body ng-app="opendirectories" ng-controller="AppController">
 
     <ng-include src="'app/views/saved_queries.html'"></ng-include>
     <ng-include src="'app/views/topbar.html'"></ng-include>
 
-    <div ng-view></div>
+    <div class="view" ng-view></div>
 
   </body>
 </html>

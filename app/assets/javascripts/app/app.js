@@ -1,6 +1,10 @@
 var app;
 
-app = angular.module("opendirectories", ["ngAria", "ngAnimate", "ngMaterial", "ngMdIcons", "ngRoute", "opendirectories.controllers", "opendirectories.services", "opendirectories.directives", "opendirectories.factories", "opendirectories.blacklist.controllers", "opendirectories.queryTypes.controllers"]);
+app = angular.module("opendirectories", ["ngAria", "ngAnimate", "ngMaterial", "ngMdIcons", "ngRoute", "opendirectories.controllers", "opendirectories.services", "opendirectories.directives", "opendirectories.factories"]);
+
+app.config(function($mdThemingProvider) {
+  return $mdThemingProvider.theme("default").primaryPalette("brown").accentPalette("orange");
+});
 
 app.service("DEFAULT_SETTINGS", [
   function() {
@@ -49,7 +53,7 @@ app.config(function($routeProvider, $locationProvider) {
     controller: "QueryTypeEditController"
   }).otherwise({
     templateUrl: "app/views/index.html",
-    controller: "appController"
+    controller: "AppController"
   });
   return $locationProvider.html5Mode(true);
 });

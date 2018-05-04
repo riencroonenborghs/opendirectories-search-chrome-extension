@@ -1,4 +1,4 @@
-body { width: 500px; height: 350px; }
+.view { min-width: 500px; min-height: 350px; }
 
 .pointer { cursor: pointer; }
 
@@ -11,8 +11,8 @@ body { width: 500px; height: 350px; }
 
 .new-blacklist md-input-container { width: 100%; }
 
-.saved-queries { max-height: 250px; }
-
+.saved-queries { max-height: 340px; }
+.saved-queries md-list-item { padding: 0; margin: 0; }
 
 .search md-checkbox { margin-bottom: 0px; }
 

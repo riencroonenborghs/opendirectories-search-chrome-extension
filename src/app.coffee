@@ -7,10 +7,14 @@ app = angular.module "opendirectories", [
   "opendirectories.controllers",
   "opendirectories.services",
   "opendirectories.directives",
-  "opendirectories.factories",
-  "opendirectories.blacklist.controllers",
-  "opendirectories.queryTypes.controllers"
+  "opendirectories.factories"
 ]
+
+# Available palettes: red, pink, purple, deep-purple, indigo, blue, light-blue, cyan, teal, green, light-green, lime, yellow, amber, orange, deep-orange, brown, grey, blue-grey
+app.config ($mdThemingProvider) ->
+  $mdThemingProvider.theme("default")
+    .primaryPalette("brown")
+    .accentPalette("orange")
 
 app.service "DEFAULT_SETTINGS", [->
   BLACKLIST: [
@@ -54,7 +58,7 @@ app.config ($routeProvider, $locationProvider) ->
       controller: "QueryTypeEditController"
     .otherwise
       templateUrl: "app/views/index.html"
-      controller: "appController"
+      controller: "AppController"
 
   $locationProvider.html5Mode true  
 

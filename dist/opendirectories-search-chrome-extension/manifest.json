@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+
+  "name": "Opendirectories Search",
+  "description": "Search opendirectories using Google",
+  "version": "6.0",
+
+  "browser_action": {
+    "default_icon": "assets/images/app.png",
+    "default_popup": "index.html"
+  },
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "icons": {
+    "16": "assets/images/app.png"
+  }
+}

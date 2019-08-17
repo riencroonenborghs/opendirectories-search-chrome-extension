@@ -1,0 +1,20 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button routerLink="/settings/blacklist">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <span>New Blacklist</span>
+    <span class="spacer"></span>
+    <button mat-icon-button (click)="save()">
+      <mat-icon>save</mat-icon>
+    </button>  
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="padder">
+  <div fxLayout="row" fxLayoutAlign="space-between center">
+    <mat-form-field>
+      <input matInput type="text" placeholder="URL" [(ngModel)]="url">
+    </mat-form-field>
+  </div>
+</div>

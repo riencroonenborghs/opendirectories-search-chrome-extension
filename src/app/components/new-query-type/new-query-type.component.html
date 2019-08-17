@@ -1,0 +1,23 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button routerLink="/settings/query-types">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <span>New Query Type</span>
+    <span class="spacer"></span>
+    <button mat-icon-button (click)="save()">
+      <mat-icon>save</mat-icon>
+    </button>  
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="padder">
+  <div fxLayout="column" fxLayoutAlign="space-between center">
+    <mat-form-field>
+      <input matInput type="text" placeholder="Label" [(ngModel)]="label">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" placeholder="Extensions (comma-separated)" [(ngModel)]="extensions">
+    </mat-form-field>
+  </div>
+</div>

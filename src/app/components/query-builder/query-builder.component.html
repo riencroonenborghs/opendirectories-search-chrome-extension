@@ -1,0 +1,57 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Opendirectories</span>
+    <span class="spacer"></span>
+    <button mat-icon-button routerLink="/settings/saved-queries">
+      <mat-icon>save</mat-icon>
+    </button>    
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>settings</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="/settings/query-types">
+        <span>Query Types</span>
+      </button>
+      <button mat-menu-item routerLink="/settings/blacklist">
+        <span>Blacklist</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div fxLayout="column" id="query-builder" class="padder">
+  <!-- query -->
+  <div fxLayout="row" fxLayoutAlign="space-between center" id="query">
+    <mat-form-field [ngClass]="{buttoned: query.query}">
+      <input matInput type="text" placeholder="Query" [(ngModel)]="query.query" (keyup)="buildQuery()" autofocus>
+      <button *ngIf="query.query" mat-button matSuffix mat-icon-button aria-label="Clear" (click)="clear()  ">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <button *ngIf="query.query" mat-button mat-icon-button aria-label="Save" (click)="save()">
+      <mat-icon>save</mat-icon>
+    </button>
+    <button *ngIf="query.query" mat-button mat-icon-button aria-label="Search" (click)="search()">
+      <mat-icon>search</mat-icon>
+    </button>
+  </div>
+  <!-- options -->
+  <div fxLayout="row" fxLayoutAlign="space-between center" id="options">
+    <mat-form-field>
+      <mat-label>Type</mat-label>
+      <mat-select [(value)]="query.queryType" (selectionChange)="buildQuery()">
+        <mat-option *ngFor="let type of queryTypes" [value]="type">
+          {{type.label}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-checkbox [(ngModel)]="query.alternative" (change)="buildQuery()">Alternative</mat-checkbox>
+    <mat-checkbox [(ngModel)]="query.quoted" (change)="buildQuery()">Quoted</mat-checkbox>
+    <mat-checkbox [(ngModel)]="query.incognito" (change)="buildQuery()">Incognito</mat-checkbox>
+  </div>
+  <mat-card class="example-card" *ngIf="query.query">
+    <mat-card-content>
+      {{query.humanReadable}}
+    </mat-card-content>
+  </mat-card>
+</div>

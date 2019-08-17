@@ -1,0 +1,23 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button routerLink="/">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <span>Blacklist</span>
+    <span class="spacer"></span>
+    <button mat-icon-button routerLink="/settings/blacklist/new">
+      <mat-icon>add_circle_outline</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="padder">
+  <mat-list dense>
+    <div *ngFor="let blacklist of list" fxLayout="row" fxLayoutAlign="space-between center">
+      <h4 mat-line>{{blacklist.url}}</h4>
+      <button class="remove" mat-icon-button *ngIf="!blacklist.isDefault" (click)="remove(blacklist)">
+        <mat-icon>delete_outline</mat-icon>
+      </button>      
+    </div>
+  </mat-list>
+</div>

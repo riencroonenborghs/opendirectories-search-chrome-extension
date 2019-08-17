@@ -1,0 +1,32 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button routerLink="/">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <span>Saved Queries</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="padder">
+  <mat-list dense>
+    <div *ngFor="let savedQuery of list">
+      <div fxLayout="row" fxLayoutAlign="space-between center">
+        <div>
+          <h4 mat-line>{{savedQuery.query}}</h4>
+          <p>
+            {{savedQuery.queryType.label}}
+          </p>
+        </div>
+        <div>
+          <button mat-icon-button (click)="search(savedQuery)">
+            <mat-icon>play_arrow</mat-icon>
+          </button>
+          <button class="remove" mat-icon-button (click)="remove(savedQuery)">
+            <mat-icon>delete_outline</mat-icon>
+          </button>
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+    </div>
+  </mat-list>
+</div>

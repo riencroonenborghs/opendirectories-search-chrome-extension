@@ -1,0 +1,26 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button routerLink="/">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <span>Query Types</span>
+    <span class="spacer"></span>
+    <button mat-icon-button routerLink="/settings/query-types/new">
+      <mat-icon>add_circle_outline</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="padder">
+  <mat-list dense>
+    <div *ngFor="let queryType of list" fxLayout="row" fxLayoutAlign="space-between center">
+      <div fxLayout="column">
+        <h4 mat-line>{{queryType.label}}</h4>
+        <small>({{queryType.extensions}})</small>
+      </div>
+      <button class="remove" mat-icon-button *ngIf="!queryType.isDefault" (click)="remove(queryType)">
+        <mat-icon>delete_outline</mat-icon>
+      </button>      
+    </div>
+  </mat-list>
+</div>
